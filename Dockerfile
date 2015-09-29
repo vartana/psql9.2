@@ -5,7 +5,7 @@ RUN apt-get update
 RUN apt-get -y install wget
 
 RUN locale-gen en_US.UTF-8
-RUN dpkg-reconfigure locales
+RUN dpkg-reconfigure locale
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
@@ -21,4 +21,5 @@ ADD run /bin/run
 RUN chmod +x /bin/run
 
 VOLUME ["/data"]
+EXPOSE 5432
 CMD ["/bin/run"]
